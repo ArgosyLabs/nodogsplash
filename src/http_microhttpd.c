@@ -155,6 +155,9 @@ static int is_foreign_hosts(struct MHD_Connection *connection, const char *host)
 	if (host == NULL)
 		return 0;
 
+	if (!strcmp(host, config->gw_name))
+		return 0;
+
 	if (!strcmp(host, our_host))
 		return 0;
 
@@ -362,8 +365,10 @@ libmicrohttpd_cb(void *cls,
  */
 static int check_authdir_match(const char *url, const char *authdir)
 {
+/*
 	if (strlen(url) != (2 + strlen(authdir)))
 		return 0;
+*/
 
 	if (strncmp(url + 1, authdir, strlen(authdir)))
 		return 0;
@@ -393,6 +398,8 @@ static int try_to_authenticate(struct MHD_Connection *connection, t_client *clie
 
 	/* Check for authdir */
 	if (check_authdir_match(url, config->authdir)) {
+		return 1;
+
 		tok = MHD_lookup_connection_value(connection, MHD_GET_ARGUMENT_KIND, "tok");
 		debug(LOG_DEBUG, "client->token=%s tok=%s ", client->token, tok );
 

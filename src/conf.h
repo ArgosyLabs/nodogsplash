@@ -67,7 +67,7 @@
 #define DEFAULT_STATUSPAGE "status.html"
 #define DEFAULT_IMAGESDIR "images"
 #define DEFAULT_PAGESDIR "pages"
-#define DEFAULT_AUTHDIR "nodogsplash_auth"
+#define DEFAULT_AUTHDIR "grant"
 #define DEFAULT_DENYDIR "nodogsplash_deny"
 #define DEFAULT_PREAUTHDIR "nodogsplash_preauth"
 #define DEFAULT_MACMECHANISM MAC_BLOCK

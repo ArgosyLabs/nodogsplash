@@ -234,6 +234,10 @@ get_iface_mac(const char ifname[])
 		hwaddr[3] & 0xFF, hwaddr[4] & 0xFF, hwaddr[5] & 0xFF
 	);
 
+	for(r=0; r < 18; r++) {
+		mac[r] = toupper(mac[r]);
+	}
+
 	return safe_strdup(mac);
 #elif defined(__NetBSD__)
 	struct ifaddrs *ifa, *ifap;
