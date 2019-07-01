@@ -147,6 +147,7 @@ typedef struct {
 	int maxclients;			/**< @brief Maximum number of clients allowed */
 	char *gw_name;			/**< @brief Name of the gateway; e.g. its SSID */
 	char *gw_interface;		/**< @brief Interface we will manage */
+	char *gw_mac_interface;		/**< @brief Interface's MAC to use */
 	char *gw_iprange;		/**< @brief IP range on gw_interface we will manage */
 	char *gw_ip;			/**< @brief Internal IP (v4 or v6) for our web server */
 	char *gw_address;		/**< @brief Internal IP with port for our web server */

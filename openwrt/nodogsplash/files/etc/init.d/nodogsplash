@@ -147,6 +147,7 @@ generate_uci_config() {
     redirecturl sessiontimeout preauthidletimeout authidletimeout checkinterval \
     setmss mssvalue trafficcontrol downloadlimit uploadlimit \
     syslogfacility ndsctlsocket fw_mark_authenticated \
+    gatewaymacinterface \
     fw_mark_blocked fw_mark_trusted
   do
     config_get val "$cfg" "$option"
