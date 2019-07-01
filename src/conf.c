@@ -70,6 +70,7 @@ typedef enum {
 	oMaxClients,
 	oGatewayName,
 	oGatewayInterface,
+	oGatewayMacInterface,
 	oGatewayIPRange,
 	oGatewayIP,
 	/* TODO: deprecate oGatewayAddress option */
@@ -124,6 +125,7 @@ static const struct {
 	{ "maxclients", oMaxClients },
 	{ "gatewayname", oGatewayName },
 	{ "gatewayinterface", oGatewayInterface },
+	{ "gatewaymacinterface", oGatewayMacInterface },
 	{ "gatewayiprange", oGatewayIPRange },
 	{ "gatewayip", oGatewayIP },
 	/* TODO: remove/deprecate gatewayaddress keyword */
@@ -200,6 +202,7 @@ config_init(void)
 	config.maxclients = DEFAULT_MAXCLIENTS;
 	config.gw_name = safe_strdup(DEFAULT_GATEWAYNAME);
 	config.gw_interface = NULL;
+	config.gw_mac_interface = NULL;
 	config.gw_iprange = safe_strdup(DEFAULT_GATEWAY_IPRANGE);
 	config.gw_address = NULL;
 	config.gw_ip = NULL;
@@ -748,6 +751,9 @@ config_read(const char *filename)
 			break;
 		case oGatewayInterface:
 			config.gw_interface = safe_strdup(p1);
+			break;
+		case oGatewayMacInterface:
+			config.gw_mac_interface = safe_strdup(p1);
 			break;
 		case oGatewayIPRange:
 			config.gw_iprange = safe_strdup(p1);
